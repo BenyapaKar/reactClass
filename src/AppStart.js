@@ -45,11 +45,18 @@ class App extends React.Component {
   }
 
 
-  onDelete = e => {
-    e.preventDefault();
-    console.log("delete");
+  onDelete = id => {
+    console.log("delete",id);
 
-    // this.setState({ filter: e.target.value });
+    let updateTask = this.state.taskList.map(
+      e => {
+          const item = this.taskList;
+          const i = id;
+          e = item.filter(i);
+          return e;
+        }
+    );
+    this.setState({taskList: updateTask});
   }
 
   // onFilter = function(e){
@@ -84,7 +91,7 @@ class App extends React.Component {
 
         {/* Todos end here */}
         {/* <Todo taskList={initTasks} filter="all"/> */}
-        <Todo taskList={this.state.taskList} filter={this.state.filter} onCheckBoxChange={this.onCheckBox} />
+        <Todo taskList={this.state.taskList} filter={this.state.filter} onCheckBoxChange={this.onCheckBox} onDeleteCheck={this.onDelete}/>
 
       </div>
     );

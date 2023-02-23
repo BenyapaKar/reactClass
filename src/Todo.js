@@ -10,7 +10,7 @@ function Todo(props) {
         onCheckBox(id);
     }
 
-    const onDelete = props.onCheckBoxChange;
+    const onDelete = props.onDeleteCheck;
     const onDeleteCheck = (id) => {
         console.log("onDeleteCheck: ",id);
         onDelete(id);
